@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 const apps = [
   { name: "Connflix", bg: "#1a0000", icon: "▶", color: "#e53935" },
@@ -335,10 +336,12 @@ export default function Home() {
             <p className="product-name">Connflix</p>
             <p className="product-tagline">Stream cinema-grade originals.</p>
             <div className="product-actions">
-              <button className="product-btn-circle">Explore</button>
+              <Link href="/connflix">
+                <button className="product-btn-circle">Explore</button>
+              </Link>
             </div>
             <div className="product-image-wrap">
-              <Image src="/connflix_mockup.png" alt="Connflix app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+              <Image src="/echoes_of_the_abyss.png" alt="Connflix app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
             </div>
           </div>
 
@@ -347,10 +350,12 @@ export default function Home() {
             <p className="product-tagline product-tagline-dark">Your channel. Your audience.</p>
             <div className="product-actions">
               <span className="product-learn">Learn more</span>
-              <button className="product-btn-circle product-btn-circle-dark">Explore</button>
+              <Link href="/conntube">
+                <button className="product-btn-circle product-btn-circle-dark">Explore</button>
+              </Link>
             </div>
             <div className="product-image-wrap">
-              <Image src="/conntube_mockup.png" alt="Conntube app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+              <Image src="/conntube_mockup_new.png" alt="Conntube app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
             </div>
           </div>
 
@@ -359,7 +364,9 @@ export default function Home() {
             <p className="product-tagline product-tagline-dark">Sound that moves you.</p>
             <div className="product-actions">
               <span className="product-learn">Learn more</span>
-              <button className="product-btn-circle product-btn-circle-dark">Explore</button>
+              <Link href="/connmusic">
+                <button className="product-btn-circle product-btn-circle-dark">Explore</button>
+              </Link>
             </div>
             <div className="product-image-wrap">
               <Image src="/connmusic_mockup.png" alt="Connmusic app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
@@ -370,31 +377,18 @@ export default function Home() {
             <p className="product-name">Connevents</p>
             <p className="product-tagline">Live events, ticketed in seconds.</p>
             <div className="product-actions">
-              <button className="product-btn-circle">Explore</button>
+              <Link href="/connevents">
+                <button className="product-btn-circle">Explore</button>
+              </Link>
             </div>
             <div className="product-image-wrap">
-              <Image src="/connevents_mockup.png" alt="Connevents app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
+              <Image src="/connevents_new_mockup.png" alt="Connevents app" fill style={{ objectFit: "cover", objectPosition: "top" }} />
             </div>
           </div>
         </div>
       </section>
 
       <section className="why-section" ref={whyRef}>
-        <div className="why-top">
-          <div className="why-top-left">
-            <p className="why-eyebrow">WHY CONNPLEX</p>
-            <h2 className="why-title">
-              Scale that<br />delivers attention.
-            </h2>
-          </div>
-          <div className="why-top-right">
-            <p className="why-desc">
-              A network engineered for premium reach,<br />
-              undivided attention, and measurable<br />
-              brand impact.
-            </p>
-          </div>
-        </div>
 
         <div className="why-image-wrapper">
           <div className="why-bg-layer">
