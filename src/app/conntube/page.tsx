@@ -3,33 +3,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import './conntube.css';
 
-const Navbar = () => {
-    const links = ['Home', 'About Us', 'Services', 'Projects', 'Products', 'Contact'];
-    
-    return (
-        <nav className="conntube-navbar conntube-animate-fade-in">
-            <div className="conntube-logo-container">
-                <Link href="/">
-                    <Image src="/logo.png" alt="CONNPLEX CINEMAS" width={180} height={48} className="conntube-navbar-logo" />
-                </Link>
-            </div>
-            <div className="conntube-nav-links">
-                {links.map((link) => (
-                    <Link 
-                        href={link === 'Home' ? '/' : '#'} 
-                        key={link} 
-                        className={`conntube-nav-link ${link === 'Products' ? 'active' : ''}`}
-                    >
-                        {link}
-                    </Link>
-                ))}
-            </div>
-            <button className="conntube-btn-outline">Get In Touch</button>
-        </nav>
-    );
-};
 
 const Tube3DGallery = () => {
     const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -172,7 +148,7 @@ export default function ConnTube() {
     return (
         <div className="conntube-page">
             <div className="conntube-app-container">
-                <Navbar />
+                <Header />
                 <main className="conntube-main-content-split">
                     <div className="conntube-bg-glow-red"></div>
                     <div className="conntube-split-hero-wrapper conntube-animate-fade-in conntube-delay-100">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import './connflix.css';
 
 export default function Connflix() {
@@ -53,24 +54,7 @@ export default function Connflix() {
     return (
         <div className="connflix-page">
             <div className="connflix-app-container">
-                <header className="connflix-header">
-                    <div className="connflix-logo-container">
-                        <Link href="/">
-                            <Image src="/logo.png" alt="Connplex Cinemas" width={180} height={60} className="connflix-logo" />
-                        </Link>
-                    </div>
-                    <nav className="connflix-nav-links">
-                        <Link href="/" className="connflix-nav-item">Home</Link>
-                        <a href="#" className="connflix-nav-item">About Us</a>
-                        <a href="#" className="connflix-nav-item">Services</a>
-                        <a href="#" className="connflix-nav-item">Projects</a>
-                        <a href="#" className="connflix-nav-item active">Products</a>
-                        <a href="#" className="connflix-nav-item">Contact</a>
-                    </nav>
-                    <div className="connflix-header-action">
-                        <a href="#" className="connflix-btn-outline">Get in Touch</a>
-                    </div>
-                </header>
+                <Header />
 
                 <main className="connflix-main-content">
                     <div className="connflix-vertical-watermark">CONNFLIX</div>

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import './connevents.css';
 
 export default function ConnEvents() {
@@ -45,22 +46,7 @@ export default function ConnEvents() {
 
     return (
         <div className="connevents-page">
-            <nav className="connevents-navbar">
-                <div className="connevents-logo">
-                    <Link href="/">
-                        <Image src="/logo.png" alt="Connplex Cinemas" width={180} height={75} style={{ objectFit: 'contain' }} />
-                    </Link>
-                </div>
-                <ul className="connevents-nav-links">
-                    <li><Link href="/">Home</Link></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#" className="active">Products</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <a href="#" className="connevents-btn-outline">Get In Touch</a>
-            </nav>
+            <Header />
 
             <main className="connevents-hero">
                 <div className="connevents-hero-content">

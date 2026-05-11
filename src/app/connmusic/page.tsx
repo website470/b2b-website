@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import './connmusic.css';
 
 export default function Connmusic() {
@@ -48,14 +49,14 @@ export default function Connmusic() {
     // 3D Mouse tracking
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!containerRef.current || !systemRef.current) return;
-        
+
         const rect = containerRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
-        const rotateY = (x / rect.width) * 30; 
-        const rotateX = -(y / rect.height) * 30; 
-        
+
+        const rotateY = (x / rect.width) * 30;
+        const rotateX = -(y / rect.height) * 30;
+
         systemRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         systemRef.current.style.transition = 'none';
     };
@@ -70,32 +71,15 @@ export default function Connmusic() {
         <div className="connmusic-page">
             <div className="connmusic-app-container">
                 {/* Navigation */}
-                <header className="connmusic-header">
-                    <div className="connmusic-logo-container">
-                        <Link href="/">
-                            <Image src="/logo.png" alt="Connplex Cinemas" width={180} height={60} className="connmusic-logo" />
-                        </Link>
-                    </div>
-                    <nav className="connmusic-nav-links">
-                        <Link href="/" className="connmusic-nav-item">Home</Link>
-                        <a href="#" className="connmusic-nav-item">About Us</a>
-                        <a href="#" className="connmusic-nav-item">Services</a>
-                        <a href="#" className="connmusic-nav-item">Projects</a>
-                        <a href="#" className="connmusic-nav-item active">Products</a>
-                        <a href="#" className="connmusic-nav-item">Contact</a>
-                    </nav>
-                    <div className="connmusic-header-action">
-                        <a href="#" className="connmusic-btn-outline">Get In Touch</a>
-                    </div>
-                </header>
+                <Header />
 
                 {/* Main Content */}
                 <main className="connmusic-main-content">
                     <div className="connmusic-content-grid">
                         {/* Left Side: 3D System */}
                         <div className="connmusic-visual-section">
-                            <div 
-                                className="connmusic-hero-image-wrapper" 
+                            <div
+                                className="connmusic-hero-image-wrapper"
                                 ref={containerRef}
                                 onMouseMove={handleMouseMove}
                                 onMouseLeave={handleMouseLeave}
@@ -212,7 +196,7 @@ export default function Connmusic() {
                         <h3 className="connmusic-notify-subtitle">BE THE FIRST TO KNOW</h3>
                         <h2 className="connmusic-notify-main-title">Exclusive access. First listen. Only for you.</h2>
                         <p className="connmusic-notify-desc">Join the waitlist and be the first to experience CONNMUSIC.</p>
-                        
+
                         <form className="connmusic-notify-form" onSubmit={(e) => e.preventDefault()}>
                             <input type="email" placeholder="Enter your email address" required className="connmusic-notify-input" />
                             <button type="submit" className="connmusic-notify-btn">
