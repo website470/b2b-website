@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { useEffect, useState, useRef, useCallback } from "react";
 import "./advertise.css";
 
@@ -12,48 +13,48 @@ import "./advertise.css";
  * Animated Counter Component
  */
 const Counter = ({ target, isVisible }: { target: string, isVisible: boolean }) => {
-  const [displayValue, setDisplayValue] = useState("0");
-  const hasAnimated = useRef(false);
+    const [displayValue, setDisplayValue] = useState("0");
+    const hasAnimated = useRef(false);
 
-  useEffect(() => {
-    if (!isVisible || hasAnimated.current) return;
-    
-    const match = target.match(/^([^\d\.]*)([\d\.]+)([^\d\.]*)$/);
-    if (!match) {
-      setDisplayValue(target);
-      return;
-    }
+    useEffect(() => {
+        if (!isVisible || hasAnimated.current) return;
 
-    const prefix = match[1];
-    const numberStr = match[2];
-    const suffix = match[3];
-    const targetValue = parseFloat(numberStr);
-    const decimals = numberStr.includes('.') ? numberStr.split('.')[1].length : 0;
-    
-    let startTime: number | null = null;
-    const duration = 1800;
-    const easeOutCubic = (t: number) => (--t) * t * t + 1;
+        const match = target.match(/^([^\d\.]*)([\d\.]+)([^\d\.]*)$/);
+        if (!match) {
+            setDisplayValue(target);
+            return;
+        }
 
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const easedProgress = easeOutCubic(progress);
-      const currentValue = easedProgress * targetValue;
-      
-      setDisplayValue(prefix + currentValue.toFixed(decimals) + suffix);
+        const prefix = match[1];
+        const numberStr = match[2];
+        const suffix = match[3];
+        const targetValue = parseFloat(numberStr);
+        const decimals = numberStr.includes('.') ? numberStr.split('.')[1].length : 0;
 
-      if (progress < 1) {
+        let startTime: number | null = null;
+        const duration = 1800;
+        const easeOutCubic = (t: number) => (--t) * t * t + 1;
+
+        const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const easedProgress = easeOutCubic(progress);
+            const currentValue = easedProgress * targetValue;
+
+            setDisplayValue(prefix + currentValue.toFixed(decimals) + suffix);
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                setDisplayValue(target);
+                hasAnimated.current = true;
+            }
+        };
+
         requestAnimationFrame(animate);
-      } else {
-        setDisplayValue(target);
-        hasAnimated.current = true;
-      }
-    };
+    }, [isVisible, target]);
 
-    requestAnimationFrame(animate);
-  }, [isVisible, target]);
-
-  return <span>{displayValue}</span>;
+    return <span>{displayValue}</span>;
 };
 
 /**
@@ -79,7 +80,7 @@ const ProjectorMotes = () => {
         };
 
         class Mote {
-            x = 0; y = 0; size = 0; speedX = 0; speedY = 0; alpha = 0; 
+            x = 0; y = 0; size = 0; speedX = 0; speedY = 0; alpha = 0;
             shimmerSpeed = 0; shimmerDir = 1; color = "";
 
             constructor() { this.reset(true); }
@@ -138,7 +139,7 @@ const ProjectorMotes = () => {
 
         const render = (time: number) => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             if (mouseRef.current.isInside) {
                 mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.08;
                 mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.08;
@@ -172,8 +173,8 @@ const ProjectorMotes = () => {
     };
 
     return (
-        <canvas 
-            ref={canvasRef} 
+        <canvas
+            ref={canvasRef}
             className="projector-motes-canvas"
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 2, opacity: 0.7 }}
             onMouseMove={handleMouseMove}
@@ -185,11 +186,10 @@ const ProjectorMotes = () => {
 // --- Main Page ---
 
 export default function AdvertisePage() {
-    const [currentIndex, setCurrentIndex] = useState(0);
     const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
     const heroRef = useRef<HTMLDivElement>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
-    
+
     // Intersection Observer for counting animations
     const setRef = useCallback((node: HTMLElement | null, id: string) => {
         if (node) {
@@ -217,21 +217,7 @@ export default function AdvertisePage() {
         return () => window.removeEventListener('mousemove', handleParallax);
     }, []);
 
-    const cases = [
-        { brand: "SAMSUNG", title: "Galaxy S23 Ultra Launch", img: "/img/advertise/case_study_1.png", metrics: [{ val: "2.8M+", lbl: "IMPRESSIONS" }, { val: "38%", lbl: "BRAND RECALL" }, { val: "25%", lbl: "WEB TRAFFIC" }] },
-        { brand: "COCA-COLA", title: "Coke Zero Campaign", img: "/img/advertise/case_study_2.png", metrics: [{ val: "3.2M+", lbl: "IMPRESSIONS" }, { val: "42%", lbl: "BRAND RECALL" }, { val: "31%", lbl: "SALES LIFT" }] },
-        { brand: "EMAAR", title: "Dubai Creek Harbour", img: "/img/advertise/case_study_3.png", metrics: [{ val: "1.6M+", lbl: "IMPRESSIONS" }, { val: "27%", lbl: "BRAND RECALL" }, { val: "18%", lbl: "INQUIRIES" }] },
-    ];
 
-    const handleNext = () => {
-        const visibleCount = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 991 ? 2 : 3);
-        const maxIndex = Math.max(0, cases.length - visibleCount);
-        if (currentIndex < maxIndex) setCurrentIndex(currentIndex + 1);
-    };
-
-    const handlePrev = () => {
-        if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
-    };
 
     return (
         <div className="advertise-page-wrapper">
@@ -244,7 +230,7 @@ export default function AdvertisePage() {
                 </video>
                 <div className="atmospheric-overlay"></div>
                 <div className="left-vignette"></div>
-                
+
                 <ProjectorMotes />
 
                 {/* Main Hero Content */}
@@ -253,16 +239,16 @@ export default function AdvertisePage() {
                         <div className="subtitle-wrapper">
                             <span className="hero-subtitle">BIGGER SCREEN. BIGGER IMPACT.</span>
                         </div>
-                        
+
                         <h1 className="main-heading">
                             ADVERTISE<br />
                             <span className="gold-gradient-text">WITH CONNPLEX</span>
                         </h1>
-                        
+
                         <p className="tagline-paragraph">
-                            Reach captivated audiences in the most premium cinema environments. We turn your brand into an unforgettable experience.
+                            Premium Cinema Advertising Solutions Designed to Maximize Attention & Brand Recall.
                         </p>
-                        
+
                         <div className="cta-wrapper">
                             <Link href="/contact" className="btn-partner">
                                 <span>LET&apos;S PARTNER</span>
@@ -282,23 +268,28 @@ export default function AdvertisePage() {
                     <div className="brands-header">
                         <span className="brands-title">TRUSTED BY WORLD-CLASS BRANDS</span>
                     </div>
-                    
-                    <div className="brands-logos-grid">
-                        <div className="brand-item brand-samsung"><span>SAMSUNG</span></div>
-                        <div className="brand-item brand-cocacola">
-                            <svg viewBox="0 0 200 65" className="brand-svg-cola">
-                                <text x="50%" y="45" textAnchor="middle" fontFamily="'Brush Script MT', cursive" fontSize="44" fontWeight="700">Coca-Cola</text>
-                            </svg>
-                        </div>
-                        <div className="brand-item brand-jacob"><span>JACOB & CO</span></div>
-                        <div className="brand-item brand-emaar"><span>EMAAR</span></div>
-                        <div className="brand-item brand-netflix"><span>NETFLIX</span></div>
-                        <div className="brand-item brand-emirates"><span>Emirates</span></div>
-                        <div className="brand-item brand-patek">
-                            <div className="patek-container">
-                                <span className="patek-main">PATEK PHILIPPE</span>
-                                <span className="patek-sub">GENEVE</span>
-                            </div>
+
+                    <div className="brands-logos-wrapper">
+                        <div className="brands-logos-track">
+                            {/* Duplicate the group twice for seamless infinite scrolling */}
+                            {[...Array(2)].map((_, idx) => (
+                                <div key={idx} className="brands-logos-group">
+                                    <div className="brand-item brand-samsung"><span>SAMSUNG</span></div>
+                                    <div className="brand-item brand-samsung"><span>DELL</span></div>
+                                    <div className="brand-item brand-jacob"><span>HP</span></div>
+                                    <div className="brand-item brand-emaar"><span>TVS Electronics</span></div>
+                                    <div className="brand-item brand-UFO"><span>UFO</span></div>
+                                    <div className="brand-item brand-barco"><span>Barco</span></div>
+                                    <div className="brand-item brand-barco"><span>Sony</span></div>
+                                    <div className="brand-item brand-barco"><span>Dolby</span></div>
+                                    <div className="brand-item brand-barco"><span>Galalite</span></div>
+                                    <div className="brand-item brand-barco"><span>Bookmyshow</span></div>
+                                    <div className="brand-item brand-barco"><span>JBL</span></div>
+                                    <div className="brand-item brand-barco"><span>Lavaza</span></div>
+                                    <div className="brand-item brand-barco"><span>Panaroma Studios</span></div>
+                                    <div className="brand-item brand-barco"><span>Paytm</span></div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </footer>
@@ -311,8 +302,9 @@ export default function AdvertisePage() {
                         <div className="advantage-header-left">
                             <span className="advantage-tag">THE CINEMA ADVANTAGE</span>
                             <h2 className="advantage-heading">
-                                WHY ADVERTISE<br />
-                                <span className="gold-gradient-text">WITH CONNPLEX?</span>
+                                AD FORMATS<br />
+                                THAT DELIVER<br />
+                                <span className="gold-gradient-text">MAXIMUM IMPACT</span>
                             </h2>
                         </div>
                         <div className="advantage-header-right">
@@ -321,7 +313,7 @@ export default function AdvertisePage() {
                             </p>
                         </div>
                     </div>
-                    
+
                     <div className="advantage-cards-grid">
                         {[
                             { title: "UNMATCHED ATTENTION", desc: "Captive audience with zero distractions.", icon: <circle cx="12" cy="10" r="3" /> },
@@ -357,11 +349,11 @@ export default function AdvertisePage() {
                         </div>
                         <div className="formats-cards-row">
                             {[
-                                { title: "PRE-SHOW ADS", desc: "Reach audience before the movie begins.", img: "/img/advertise/case_study_4.png" },
-                                { title: "ON-SCREEN ADS", desc: "High-impact ads during engaging moments.", img: "/img/advertise/case_study_5.png" },
-                                { title: "LOBBY & DIGITAL", desc: "Impactful branding across lobby areas.", img: "/img/advertise/case_study_6.png" },
-                                { title: "MASSIVE EXPERIENCES", desc: "Create immersive brand worlds.", img: "/img/advertise/theater_bg.png" },
-                                { title: "EVENT SPONSORSHIPS", desc: "Align with exclusive premieres.", img: "/img/advertise/cta_theater_bg.png" }
+                                { title: "PRE-SHOW ADS", desc: "Premium cinema advertising that captures audience attention before every movie.", img: "/img/advertise/case_study_4.png" },
+                                { title: "ON-SCREEN ADS", desc: "High-impact big screen advertising designed for maximum brand visibility and recall.", img: "/img/advertise/case_study_5.png" },
+                                { title: "LOBBY & DIGITAL", desc: "Strategic cinema lobby branding and digital advertising for immersive audience.", img: "/img/advertise/case_study_6.png" },
+                                { title: "MASSIVE EXPERIENCES", desc: "Experiential marketing campaigns that create memorable and interactive brand connections.", img: "/img/advertise/theater_bg.png" },
+                                { title: "EVENT SPONSORSHIPS", desc: "Exclusive movie premiere and entertainment sponsorships that elevate brand presence.", img: "/img/advertise/cta_theater_bg.png" }
                             ].map((format, i) => (
                                 <div className="format-card" key={i}>
                                     <div className="format-image-container">
@@ -410,53 +402,7 @@ export default function AdvertisePage() {
                 </div>
             </section>
 
-            {/* Section 5: Case Studies */}
-            <section className="cases-section">
-                <div className="cases-container">
-                    <div className="cases-header-row">
-                        <div className="cases-header-left">
-                            <span className="cases-tag">REAL BRANDS. REAL RESULTS.</span>
-                            <h2 className="cases-heading">IMPACT THAT SPEAKS</h2>
-                        </div>
-                        <div className="cases-nav-arrows">
-                            <button className="cases-arrow-btn prev-btn" onClick={handlePrev} style={{ opacity: currentIndex === 0 ? 0.35 : 1 }}>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
-                            </button>
-                            <button className="cases-arrow-btn next-btn" onClick={handleNext} style={{ opacity: currentIndex >= cases.length - 3 ? 0.35 : 1 }}>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div className="cases-slider-viewport">
-                        <div className="cases-slider-grid" style={{ transform: `translateX(calc(-${currentIndex} * (33.333% + 16px)))` }}>
-                            {cases.map((cs, i) => (
-                                <div className="case-card" key={i}>
-                                    <div className="case-card-body">
-                                        <div className="case-card-content">
-                                            <span className="case-brand-name">{cs.brand}</span>
-                                            <h3 className="case-campaign-title">{cs.title}</h3>
-                                        </div>
-                                        <div className="case-card-visual">
-                                            <Image src={cs.img} alt={cs.brand} width={150} height={100} style={{ objectFit: 'cover' }} className="case-visual-img" />
-                                        </div>
-                                    </div>
-                                    <div className="case-card-metrics">
-                                        {cs.metrics.map((m, j) => (
-                                            <div key={j} className="case-metric-item" ref={(el) => setRef(el, `case-${i}-metric-${j}`)}>
-                                                <span className="metric-val">
-                                                    <Counter target={m.val} isVisible={isVisible[`case-${i}-metric-${j}`]} />
-                                                </span>
-                                                <span className="metric-lbl">{m.lbl}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Section 6: Audience */}
             <section className="audience-section">
@@ -482,7 +428,9 @@ export default function AdvertisePage() {
                                 { val: "70%", lbl: "AGE 18-45", icon: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" },
                                 { val: "65%", lbl: "PREMIUM INCOME", icon: "M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" },
                                 { val: "80%", lbl: "FREQUENT MOVIE GOERS", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
-                                { val: "4.7/5", lbl: "ENGAGEMENT RATE", icon: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z" }
+                                { val: "4.7/5", lbl: "ENGAGEMENT RATE", icon: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z" },
+                                { val: "10+", lbl: "CITIES", icon: "M3 21h18 M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16 M9 7h2 M9 11h2 M9 15h2 M13 7h2 M13 11h2 M13 15h2" },
+                                { val: "115+", lbl: "SCREENS", icon: "M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5z M12 17v4 M8 21h8" }
                             ].map((stat, i) => (
                                 <div className="aud-stat-item" key={i} ref={(el) => setRef(el, `aud-${i}`)}>
                                     <div className="aud-icon-wrapper">
@@ -504,17 +452,6 @@ export default function AdvertisePage() {
                                     <circle cx="582.5" cy="182.5" r="4" fill="var(--gold-primary)" />
                                     <circle cx="302.5" cy="142.5" r="4" fill="var(--gold-primary)" />
                                 </svg>
-                            </div>
-                            <div className="map-metrics-row">
-                                <div className="map-metric" ref={(el) => setRef(el, 'map-city')}>
-                                    <span className="map-metric-val"><Counter target="20+" isVisible={isVisible['map-city']} /></span>
-                                    <span className="map-metric-lbl">CITIES</span>
-                                </div>
-                                <div className="map-metric-vertical-line"></div>
-                                <div className="map-metric" ref={(el) => setRef(el, 'map-screens')}>
-                                    <span className="map-metric-val"><Counter target="200+" isVisible={isVisible['map-screens']} /></span>
-                                    <span className="map-metric-lbl">SCREENS</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -549,6 +486,8 @@ export default function AdvertisePage() {
                     </div>
                 </div>
             </section>
+
+            <Footer />
         </div>
     );
 }

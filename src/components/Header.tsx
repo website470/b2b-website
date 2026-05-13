@@ -25,12 +25,8 @@ export default function Header() {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Advertise', path: '/advertise' },
-    { name: 'Franchise', path: '/franchise' },
-    { name: 'Connflix', path: '/connflix' },
-    { name: 'Conntube', path: '/conntube' },
-    { name: 'Connmusic', path: '/connmusic' },
-    { name: 'Connevents', path: '/connevents' },
-    { name: 'Events', path: '/book-event' },
+    { name: 'Apply For Franchise', path: '/franchise' },
+    { name: 'Book an Event', path: '/book-event' },
     { name: 'Case Studies', path: '/case-studies' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -50,16 +46,16 @@ export default function Header() {
             <div className="burger-bar"></div>
             <div className="burger-bar"></div>
           </div>
-          <button className="btn-primary" style={{ display: isOpen ? 'none' : 'block' }}>Partner With Us</button>
+          <a href="https://theconnplex.com/" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: isOpen ? 'none' : 'block' }}>Partner With Us</a>
         </div>
       </header>
 
       <div className={`menu-overlay ${isOpen ? 'open' : ''}`}>
         <nav className="menu-links">
           {links.map((link) => (
-            <Link 
-              key={link.path} 
-              href={link.path} 
+            <Link
+              key={link.path}
+              href={link.path}
               className={`menu-link ${pathname === link.path ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >

@@ -99,7 +99,7 @@ const TestimonialSlider = () => {
             <button className="fra-slider-btn prev" onClick={prevSlide}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
-            
+
             <div className="slider-viewport">
                 <div
                     className="fra-testimonials-track"
@@ -147,37 +147,121 @@ export default function FranchisePage() {
                 <div className="fra-hero-content">
                     <h1>OWN YOUR<br /><span className="fra-gold-text">OWN CINEMA</span></h1>
                     <p className="fra-hero-p">
-                        Step into the future of entertainment with Connplex.<br />
-                        Partner with India&apos;s most premium cinema brand<br />
-                        and build a legacy of unforgettable experiences.
+                        Partner with Connplex — India's fastest-growing<br />
+                        multiplex franchise chain — and bring a <br />
+                        world-class cinema experience to your city.
                     </p>
-                    <Link href="#contact" className="fra-btn-solid">PARTNER WITH US →</Link>
+                    <div className="fra-hero-buttons" style={{ display: 'flex', gap: '15px', alignItems: 'center', marginTop: '10px' }}>
+                        <Link href="#contact" className="fra-btn-solid" style={{ whiteSpace: 'nowrap', padding: '15px 30px' }}>Explore Franchise Opportunities  →</Link>
+                        <Link href="#models" className="fra-btn-outline" style={{ background: 'transparent', color: '#fff', border: '1px solid #c19b62', padding: '15px 30px', borderRadius: '4px', fontWeight: 700, textTransform: 'uppercase', cursor: 'pointer', transition: 'all 0.3s', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Talk to Our Franchise Team</Link>
+                    </div>
                 </div>
             </section>
 
             {/* Models */}
-            <section className="fra-models-section">
+            <section className="fra-models-section" id="models">
                 <div className="fra-section-heading">
                     <span className="fra-subtitle">FLEXIBLE MODELS</span>
                     <h2 style={{ fontSize: '2rem' }}>CHOOSE YOUR PATH TO OWNERSHIP</h2>
                     <div style={{ width: '40px', height: '2px', background: '#c19b62', margin: '15px auto' }}></div>
                 </div>
-                <div className="fra-models-grid">
+                <div className="fra-models-grid" style={{ gridTemplateColumns: '1fr', gap: '50px' }}>
                     {[
-                        { id: "01", title: "MANAGED FRANCHISE", desc: "We manage operations, you earn hassle-free.", features: ["End-to-end management by Connplex", "Proven business model", "High ROI with low operational effort"] },
-                        { id: "02", title: "OPERATING FRANCHISE", desc: "Run your cinema with our expertise and support.", features: ["Full operational control", "Complete training & support", "Marketing & technology backing"] },
-                        { id: "03", title: "DEVELOPMENT FRANCHISE", desc: "Build your cinema, we&apos;ll handle the rest.", features: ["Investment in space & interiors", "Connplex manages setup & operations", "Premium brand, maximum returns"] }
+                        {
+                            title: "LUXURIANCE",
+                            subtitle: "The full-scale luxury cinema franchise — built for maximum impact.",
+                            idealFor: "Metro & Tier 1 markets",
+                            description: [
+                                "The Connplex Luxuriance is our flagship luxury cinema franchise format — a full-scale multiplex experience designed for high-footfall urban markets where audiences expect nothing less than world-class. With 4 to 6 premium auditoriums, recliner seating, Dolby Atmos sound, and a signature lobby experience, Luxuriance sets the benchmark for premium cinema in India.",
+                                "Built across 12,000–14,000 sq ft, this format is engineered for developers and investors seeking a high-revenue cinema franchise anchor in malls, mixed-use developments, and large commercial properties in metro and Tier 1 markets."
+                            ],
+                            features: [
+                                "Maximum screen count for higher content variety",
+                                "Largest audience capacity — up to 300 seats",
+                                "Signature lobby design with premium F&B",
+                                "Strongest ROI potential in high-density markets"
+                            ],
+                            specs: [
+                                { label: "Required Area", value: "12,000 – 14,000 sq ft", desc: "Built-up area" },
+                                { label: "Screens", value: "4 – 6 Screens", desc: "Auditorium count" },
+                                { label: "Seat Capacity", value: "Up to 300 Seats", desc: "Across all screens" },
+                                { label: "Clear Height", value: "12 ft – 14 ft", desc: "Minimum ceiling height" }
+                            ]
+                        },
+                        {
+                            title: "SIGNATURE",
+                            subtitle: "The perfect balance of luxury, scale, and investment efficiency.",
+                            idealFor: "Tier 1 & strong Tier 2 cities",
+                            description: [
+                                "The Connplex Signature is the most versatile format in our cinema franchise portfolio — delivering the full Connplex luxury experience at a more accessible footprint and investment threshold. With 3 to 4 screens and seating for up to 250 guests, Signature is purpose-built for markets that demand quality without requiring the scale of a flagship multiplex.",
+                                "Across 8,000–10,000 sq ft, this mid-scale multiplex franchise model suits established Tier 2 cities, premium high streets, and developers looking for a cinema franchise with a faster break-even and strong neighbourhood loyalty."
+                            ],
+                            features: [
+                                "Optimal screen-to-footprint ratio",
+                                "Full Connplex brand and technology standards",
+                                "Up to 250 seats — right-sized for growing urban audiences",
+                                "Faster break-even timeline compared to flagship format"
+                            ],
+                            specs: [
+                                { label: "Required Area", value: "8,000 – 10,000 sq ft", desc: "Built-up area" },
+                                { label: "Screens", value: "3 – 4 Screens", desc: "Auditorium count" },
+                                { label: "Seat Capacity", value: "Up to 250 Seats", desc: "Across all screens" },
+                                { label: "Clear Height", value: "12 ft – 14 ft", desc: "Minimum ceiling height" }
+                            ]
+                        },
+                        {
+                            title: "SMART",
+                            subtitle: "The entry-level cinema franchise that opens every market.",
+                            idealFor: "Tier 2, Tier 3 & emerging cities",
+                            description: [
+                                "The Connplex Smart is the most accessible format in our cinema franchise range — and the one changing the face of entertainment in India's underserved markets. With 2 to 4 screens, seating up to 200 guests, and a footprint starting at just 7,000 sq ft, the Smart model is the ideal mini multiplex franchise for Tier 2, Tier 3, and emerging cities where organised cinema has never existed.",
+                                "This is where the biggest opportunities are. Low competition. High demand. A first-mover advantage that no other cinema franchise model in India currently addresses with this level of brand quality and technology at this scale."
+                            ],
+                            features: [
+                                "Smallest footprint — ideal for compact commercial spaces",
+                                "Lowest cinema franchise investment entry point",
+                                "First-mover advantage in high-growth, low-competition markets",
+                                "Same Connplex brand, technology, and content access as flagship"
+                            ],
+                            specs: [
+                                { label: "Required Area", value: "7,000 – 10,000 sq ft", desc: "Built-up area" },
+                                { label: "Screens", value: "2 – 4 Screens", desc: "Auditorium count" },
+                                { label: "Seat Capacity", value: "Up to 200 Seats", desc: "Across all screens" },
+                                { label: "Clear Height", value: "10 ft – 12 ft", desc: "Minimum ceiling height" }
+                            ]
+                        }
                     ].map((m, i) => (
-                        <div className="fra-model-card" key={i}>
-                            <span className="fra-subtitle" style={{ fontSize: '0.7rem' }}>MODEL {m.id}</span>
-                            <h3>{m.title}</h3>
-                            <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>{m.desc}</p>
-                            <ul className="fra-features-list">
-                                {m.features.map((f, j) => (
-                                    <li key={j}><svg viewBox="0 0 24 24" fill="none" stroke="#c19b62" width="16" height="16"><polyline points="20 6 9 17 4 12"></polyline></svg> {f}</li>
-                                ))}
-                            </ul>
-                            <Link href="#contact" style={{ color: '#c19b62', fontSize: '0.9rem' }}>EXPLORE MODEL →</Link>
+                        <div className="fra-model-card" key={i} style={{ display: 'flex', flexDirection: 'column', gap: '30px', textAlign: 'left', padding: '40px' }}>
+                            <div className="model-header">
+                                <h3 style={{ fontSize: '2rem', color: '#c19b62', marginBottom: '10px' }}>{m.title}</h3>
+                                <p style={{ fontSize: '1.2rem', fontWeight: 600, color: '#fff', marginBottom: '5px' }}>{m.subtitle}</p>
+                                <span style={{ color: '#a0a0a0', fontSize: '0.9rem', fontStyle: 'italic' }}>Ideal for: {m.idealFor}</span>
+                            </div>
+
+                            <div className="model-body" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+                                <div className="model-desc">
+                                    {m.description.map((p, j) => <p key={j} style={{ fontSize: '0.95rem', color: '#ddd', marginBottom: '15px', lineHeight: 1.6 }}>{p}</p>)}
+                                    <ul className="fra-features-list" style={{ marginTop: '20px' }}>
+                                        {m.features.map((f, j) => (
+                                            <li key={j} style={{ marginBottom: '10px', alignItems: 'flex-start' }}><svg viewBox="0 0 24 24" fill="none" stroke="#c19b62" width="20" height="20" style={{ marginRight: '10px', flexShrink: 0, marginTop: '2px' }}><polyline points="20 6 9 17 4 12"></polyline></svg> <span style={{ fontSize: '0.95rem' }}>{f}</span></li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="model-specs" style={{ background: 'rgba(0,0,0,0.3)', padding: '30px', borderRadius: '8px', border: '1px solid rgba(193, 155, 98, 0.1)', height: 'fit-content' }}>
+                                    <h4 style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>Technical Specifications</h4>
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                        {m.specs.map((s, j) => (
+                                            <div key={j} className="spec-item">
+                                                <span style={{ display: 'block', fontSize: '0.75rem', color: '#a0a0a0', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>{s.label}</span>
+                                                <strong style={{ display: 'block', fontSize: '1.1rem', color: '#c19b62', marginBottom: '3px' }}>{s.value}</strong>
+                                                <span style={{ fontSize: '0.8rem', color: '#888' }}>{s.desc}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <Link href="#contact" className="fra-btn-solid" style={{ display: 'inline-block', marginTop: '30px', width: '100%', textAlign: 'center', boxSizing: 'border-box' }}>EXPLORE {m.title}</Link>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -202,9 +286,9 @@ export default function FranchisePage() {
                     </div>
                     <div className="fra-stats-grid">
                         {[
-                            { val: "120+", lbl: "Cinemas Nationwide" },
-                            { val: "25M+", lbl: "Happy Moviegoers" },
-                            { val: "60+", lbl: "Cities Covered" },
+                            { val: "42+", lbl: "Cinemas Nationwide" },
+                            { val: "10M+", lbl: "Happy Moviegoers" },
+                            { val: "50+", lbl: "Cities Covered" },
                             { val: "98%", lbl: "Partner Satisfaction" }
                         ].map((s, i) => (
                             <div className="fra-stat-card" key={i}>

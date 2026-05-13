@@ -7,16 +7,15 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const apps = [
-  { name: "Connflix", bg: "#1a0000", icon: "▶", color: "#e53935" },
-  { name: "Conntube", bg: "#0d0d0d", icon: "📺", color: "#aaa" },
-  { name: "Connmusic", bg: "#0d0d0d", icon: "♪", color: "#fff" },
-  { name: "Connevents", bg: "#111", icon: "🎭", color: "#ccc" },
-  { name: "Connplay", bg: "#0d0d0d", icon: "▷", color: "#fff" },
-  { name: "Connkids", bg: "#0a0a2a", icon: "👦", color: "#7eb8f7" },
-  { name: "Connsports", bg: "#001a00", icon: "🎽", color: "#4caf50" },
-  { name: "Connlive", bg: "#1a000a", icon: "⦿", color: "#e91e63" },
-  { name: "Connnews", bg: "#0a0a0a", icon: "📰", color: "#90caf9" },
-  { name: "Conngames", bg: "#0a001a", icon: "🎮", color: "#ce93d8" },
+  { name: "Connflix", glow: "rgba(229, 57, 53, 0.35)", color: "#ff5252", icon: <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z" /></svg> },
+  { name: "Conntube", glow: "rgba(255, 255, 255, 0.25)", color: "#ffffff", icon: <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><rect x="2" y="6" width="20" height="12" rx="3" /><path d="M10 9l5 3-5 3V9z" fill="#111" /></svg> },
+  { name: "Connmusic", glow: "rgba(255, 183, 77, 0.35)", color: "#ffffff", icon: <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M9 18h-2c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3v-7h8v3h-6v8c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" /></svg> },
+  { name: "Connevents", glow: "rgba(224, 224, 224, 0.25)", color: "#ffffff", icon: <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 6h16v3.5a2.5 2.5 0 0 1 0 5V18H4v-3.5a2.5 2.5 0 0 1 0-5V6z" /></svg> },
+  { name: "Connplay", glow: "rgba(79, 195, 247, 0.35)", color: "#ffffff", icon: <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z" /></svg> },
+  { name: "Connkids", glow: "rgba(129, 212, 250, 0.35)", color: "#81d4fa", icon: <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg> },
+  { name: "Connsports", glow: "rgba(105, 240, 174, 0.35)", color: "#69f0ae", icon: <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" /></svg> },
+  { name: "Connlive", glow: "rgba(255, 82, 82, 0.35)", color: "#ffffff", icon: <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="2" /><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48 0a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14" /></svg> },
+  { name: "Connnews", glow: "rgba(187, 222, 251, 0.35)", color: "#ffffff", icon: <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M4 6h16v12H4z" /><path d="M6 8h12v2H6zm0 4h8v2H6zm0 4h12v2H6z" /></svg> },
 ];
 
 const movies = [
@@ -47,26 +46,26 @@ const slides = [
   {
     src: "/img/LUX.jpeg",
     alt: "Luxury Cinema Lounge",
-    eyebrow: "PREMIUM LOUNGERS",
+    eyebrow: "Luxury Cinema Experience.",
     title: "Luxury Cinema\nExperience",
     tags: "Recliners · Gourmet F&B · VIP Service",
-    desc: "Plush leather recliners, curated menus and white-glove service.\nHost premieres, VIP screenings and private events in true luxury.",
+    desc: "Plush recliners, curated menus, and white-glove service. Every detail crafted for indulgence. Host premieres, VIP screenings, and private events in true luxury. This is cinema as an event - intimate, indulgent, unforgettable.",
   },
   {
     src: "/img/SIG.jpeg",
     alt: "Signature Screen",
-    eyebrow: "SIGNATURE SCREENS",
+    eyebrow: "Where Style Meets the Screen.",
     title: "Signature\nExperience",
-    tags: "Immersive Audio · 4K Projection · Premium Seating",
-    desc: "World-class projection and Dolby Atmos audio in a curated setting.\nThe perfect stage for brand premieres and exclusive screenings.",
+    tags: "Technology · Design · Immersion",
+    desc: "Sleek interiors, cutting-edge technology, and an atmosphere that pulls you in from the moment you walk through the door. Cinema elevated for the modern audience.",
   },
   {
     src: "/img/SMART.jpeg",
     alt: "Smart Cinema",
-    eyebrow: "SMART CINEMAS",
+    eyebrow: "Cinema for Every City.",
     title: "Smart Cinema\nNetworks",
-    tags: "Digital Ads · Real-time Analytics · Targeted Reach",
-    desc: "Leverage programmatic advertising across our smart screen network.\nTrack impressions, dwell time and conversions in real time.",
+    tags: "Comfort · Quality · Community",
+    desc: "Thoughtfully designed spaces, quality screens, and a comfortable atmosphere. Smart makes every visit feel easy, enjoyable and just right.",
   },
 ];
 
@@ -202,31 +201,33 @@ export default function Home() {
         </div>
 
         <h1 className="hero-title">
-          Cinema Spaces<br />
-          <span className="text-gold">for Brands.</span>
+          Unbox your  <br />
+          <span className="text-gold">Cinema.</span>
         </h1>
 
-        <p className="hero-subtitle">Launch. Engage. Convert on the Big Screen.</p>
+        <p className="hero-subtitle">Luxury. Technology. Cinema.</p>
 
         <div className="hero-actions">
-          <button className="btn-secondary">
+          <a href="https://theconnplex.com/" target="_blank" rel="noopener noreferrer" className="btn-secondary">
             Partner With Us <span>&rarr;</span>
-          </button>
-          <button className="btn-outline">Explore Venues</button>
+          </a>
+          <a href="https://ticketing.theconnplex.com/" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            Book tickets <span>&rarr;</span>
+          </a>
         </div>
 
         <div className="features-grid">
           <div className="feature-item">
-            <h3 className="feature-title">High Footfall</h3>
-            <p className="feature-desc">Daily premium audience</p>
+            <h3 className="feature-title">Pan-India Reach </h3>
+            <p className="feature-desc">115+ screens operational</p>
           </div>
           <div className="feature-item">
-            <h3 className="feature-title">Premium Screens</h3>
-            <p className="feature-desc">200+ across India</p>
+            <h3 className="feature-title">High Cinema Footfall</h3>
+            <p className="feature-desc">Connect with thousands of daily visitors</p>
           </div>
           <div className="feature-item">
-            <h3 className="feature-title">Measurable Impact</h3>
-            <p className="feature-desc">Verified engagement</p>
+            <h3 className="feature-title">Next-Generation Cinema Screens</h3>
+            <p className="feature-desc">Luxury movie experiences across India</p>
           </div>
         </div>
       </main>
@@ -237,7 +238,7 @@ export default function Home() {
           <div className="suite-left">
             <p className="suite-eyebrow">THE CONNPLEX SUITE</p>
             <h2 className="suite-title">
-              15&nbsp;apps. <span>One ecosystem.</span>
+              One Entertainment Ecosystem. <span>Infinite Experiences.</span>
             </h2>
           </div>
           <button className="suite-scroll-btn">Scroll →</button>
@@ -247,8 +248,24 @@ export default function Home() {
           <div className="apps-track">
             {apps.map((app) => (
               <div className="app-card" key={app.name}>
-                <div className="app-icon-circle" style={{ background: app.bg }}>
-                  <span style={{ fontSize: "2.5rem" }}>{app.icon}</span>
+                <div className="app-icon-circle" style={{ backgroundColor: 'transparent' }}>
+                  <div
+                    className="app-icon-inner"
+                    style={{
+                      width: '65px',
+                      height: '65px',
+                      borderRadius: '22px',
+                      background: 'linear-gradient(145deg, #1a1a1a, #0a0a0a)',
+                      boxShadow: `0 0 25px ${app.glow}, inset 0 0 15px ${app.glow}`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: app.color,
+                      border: `1px solid ${app.glow}`
+                    }}
+                  >
+                    {app.icon}
+                  </div>
                 </div>
                 <p className="app-name">{app.name}</p>
               </div>
@@ -340,7 +357,7 @@ export default function Home() {
             <p className="product-name product-name-dark">Conntube</p>
             <p className="product-tagline product-tagline-dark">Your channel. Your audience.</p>
             <div className="product-actions">
-              <span className="product-learn">Learn more</span>
+
               <Link href="/conntube">
                 <button className="product-btn-circle product-btn-circle-dark">Explore</button>
               </Link>
@@ -351,10 +368,10 @@ export default function Home() {
           </div>
 
           <div className="product-card product-card-light">
-            <p className="product-name product-name-dark">Connmusic</p>
-            <p className="product-tagline product-tagline-dark">Sound that moves you.</p>
+            <p className="product-name product-name-dark">SpectraX</p>
+            <p className="product-tagline product-tagline-dark">Experience beyond the screen.</p>
             <div className="product-actions">
-              <span className="product-learn">Learn more</span>
+
               <Link href="/connmusic">
                 <button className="product-btn-circle product-btn-circle-dark">Explore</button>
               </Link>
@@ -365,10 +382,10 @@ export default function Home() {
           </div>
 
           <div className="product-card product-card-dark">
-            <p className="product-name">Connevents</p>
-            <p className="product-tagline">Live events, ticketed in seconds.</p>
+            <p className="product-name">DownTown</p>
+            <p className="product-tagline">Design for mordern crowd.</p>
             <div className="product-actions">
-              <Link href="/connevents">
+              <Link href="/downtown">
                 <button className="product-btn-circle">Explore</button>
               </Link>
             </div>
@@ -410,8 +427,10 @@ export default function Home() {
               </div>
               <h3 className="why-image-text">Where cinema becomes an experience.</h3>
               <div className="why-image-btns">
-                <button className="why-btn why-btn-gold">Learn more</button>
-                <button className="why-btn why-btn-outline">Buy now</button>
+
+                <a href="https://ticketing.theconnplex.com/" target="_blank" rel="noopener noreferrer" className="why-btn why-btn-outline">
+                  Book Your Tickets
+                </a>
               </div>
             </div>
           </div>
@@ -420,13 +439,13 @@ export default function Home() {
         <div className="why-stats">
           <div className="why-stat">
             <span className="why-stat-num">
-              <Counter target={50} isVisible={isWhyVisible} suffix="M+" />
+              <Counter target={10} isVisible={isWhyVisible} suffix="M+" />
             </span>
             <span className="why-stat-label">Annual Footfall</span>
           </div>
           <div className="why-stat">
             <span className="why-stat-num">
-              <Counter target={200} isVisible={isWhyVisible} suffix="+" />
+              <Counter target={115} isVisible={isWhyVisible} suffix="+" />
             </span>
             <span className="why-stat-label">Premium Screens</span>
           </div>
@@ -435,10 +454,8 @@ export default function Home() {
             <span className="why-stat-label">Cities Covered</span>
           </div>
           <div className="why-stat">
-            <span className="why-stat-num">
-              <Counter target={2.5} isVisible={isWhyVisible} suffix=" hrs" decimals={1} />
-            </span>
-            <span className="why-stat-label">Avg. Engagement</span>
+            <span className="why-stat-num">Immersive</span>
+            <span className="why-stat-label">Cinema Experiences Delivered</span>
           </div>
         </div>
       </section>
@@ -501,7 +518,9 @@ export default function Home() {
             <span className="movies-title-strong">Latest Releases</span>{" "}
             <span className="movies-title-muted">now screening.</span>
           </h2>
-          <button className="movies-view-all">View All Movies →</button>
+          <a href="https://ticketing.theconnplex.com/" target="_blank" rel="noopener noreferrer" className="movies-view-all">
+            View All Movies →
+          </a>
         </div>
 
         <div className="movies-grid" role="list">
@@ -520,7 +539,9 @@ export default function Home() {
                   </div>
                   <h3 className="movie-card-title">{m.title}</h3>
                   <p className="movie-card-genre">{m.genre}</p>
-                  <button className="movie-book-btn">Book Tickets</button>
+                  <a href="https://ticketing.theconnplex.com/" target="_blank" rel="noopener noreferrer" className="movie-book-btn">
+                    Book Tickets
+                  </a>
                 </div>
               </div>
             </div>
@@ -530,21 +551,18 @@ export default function Home() {
 
       <section className="partner-section">
         <div className="partner-content">
-          <p className="partner-eyebrow">LET&apos;S PARTNER</p>
+          <p className="partner-eyebrow">LET&apos;S CREATE TOGETHER</p>
           <h2 className="partner-title">
-            Let&apos;s build <span className="text-gold">high-impact</span><br />
+            Build  <span className="text-gold">high-impact</span><br />
             brand experiences.
           </h2>
           <p className="partner-subtitle">
-            Tell us about your brand, your audience, and what you want them<br />
-            to feel.
+            Tell us your vision. We'll handle the rest.
           </p>
           <div className="partner-action">
-            <button className="btn-get-touch">Get in Touch</button>
+            <Link href="/contact" className="btn-get-touch">Get in Touch</Link>
           </div>
-          <p className="partner-footer">
-            partners@connplex.com &bull; Response within 24 hours
-          </p>
+
         </div>
       </section>
 

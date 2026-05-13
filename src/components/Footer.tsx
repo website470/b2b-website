@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-grid">
+            <div className="global-footer-grid">
                 <div className="footer-col footer-brand">
                     <div className="logo-box logo-footer">
                         <Image src="/logo.png" alt="Connplex Cinemas" width={150} height={50} style={{ objectFit: "contain" }} />
@@ -17,42 +17,38 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-col">
-                    <h4 className="footer-heading">SOLUTIONS</h4>
+
                     <ul className="footer-list">
-                        <li><a href="#">Brand Launches</a></li>
-                        <li><a href="#">Corporate Events</a></li>
-                        <li><a href="#">Private Screenings</a></li>
-                        <li><a href="#">On-Screen Advertising</a></li>
+                        <li><a href="#">Inverstors Section</a></li>
+                        <li><a href="#">Apply For Franchise</a></li>
+                        <li><a href="#">Franchisee Section</a></li>
+                        <li><a href="#">CAPEX for Developer</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-col">
-                    <h4 className="footer-heading">VENUES</h4>
                     <ul className="footer-list">
-                        <li><a href="#">Mumbai</a></li>
-                        <li><a href="#">Delhi NCR</a></li>
-                        <li><a href="#">Bengaluru</a></li>
-                        <li><a href="#">Tier 2 Network</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">News & Upcoming Promotions</a></li>
+                        <li><a href="#">20 Minutes Franchise</a></li>
+                        <li><a href="#">Gallery</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-col">
-                    <h4 className="footer-heading">INSIGHTS</h4>
                     <ul className="footer-list">
-                        <li><a href="#">Audience Research</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Industry Reports</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Advertise With Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-col">
-                    <h4 className="footer-heading">CONTACT</h4>
                     <ul className="footer-list">
-                        <li><a href="#">Partner With Us</a></li>
-                        <li><a href="#">Media Enquiries</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="mailto:partners@connplex.com">partners@connplex.com</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Legal Notice</a></li>
                     </ul>
                 </div>
             </div>

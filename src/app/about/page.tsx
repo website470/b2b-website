@@ -70,13 +70,13 @@ export default function AboutPage() {
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const tiltX = ((y - centerY) / centerY) * -10; // Max tilt 10deg
     const tiltY = ((x - centerX) / centerX) * 10;
-    
+
     el.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02) translateY(-8px)`;
   };
 
@@ -98,10 +98,10 @@ export default function AboutPage() {
           ========================================== */}
       <section className="hero-section">
         <div className="hero-bg-container">
-          <Image 
-            src="/img/about/About us top image.png" 
-            alt="Theater Background" 
-            fill 
+          <Image
+            src="/img/about/About us top image.png"
+            alt="Theater Background"
+            fill
             className="hero-bg-img"
             style={{ objectFit: 'cover' }}
             priority
@@ -117,13 +117,13 @@ export default function AboutPage() {
                 <span className="category-tag">ABOUT US</span>
                 <div className="category-line"></div>
               </div>
-              
+
               <h1 className="main-heading">
                 REDEFINING<br />
                 THE FUTURE OF<br />
                 <span className="gold-text">CINEMA.</span>
               </h1>
-              
+
               <p className="tagline">
                 Connplex Cinemas is India&apos;s fastest-growing luxurious cinema chain, redefining the way audiences experience movies.<br />
                 Where innovation meets entertainment, and business meets blockbuster.
@@ -146,7 +146,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <div className="stat-number-wrapper">
-                  <Counter target={300} isVisible={isStatsVisible} suffix="+" />
+                  <Counter target={115} isVisible={isStatsVisible} suffix="+" />
                 </div>
                 <div className="stat-label-container">
                   <span className="stat-label-gold">SCREENS</span>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <div className="stat-number-wrapper">
-                  <Counter target={35} isVisible={isStatsVisible} suffix="+" />
+                  <Counter target={40} isVisible={isStatsVisible} suffix="+" />
                 </div>
                 <div className="stat-label-container">
                   <span className="stat-label-white">FRANCHISE LOCATIONS</span>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <div className="stat-number-wrapper">
-                  <Counter target={15} isVisible={isStatsVisible} suffix="+" />
+                  <Counter target={8} isVisible={isStatsVisible} suffix="+" />
                 </div>
                 <div className="stat-label-container">
                   <span className="stat-label-white">YEARS OF EXCELLENCE</span>
@@ -198,7 +198,7 @@ export default function AboutPage() {
                 </div>
                 <div className="stat-label-container">
                   <span className="stat-label-gold">VISION</span>
-                  <span className="stat-label-white">TO DEMOCRATIZE LUXURY</span>
+                  <span className="stat-label-white">India's Emerging cinema chain </span>
                 </div>
               </div>
 
@@ -210,7 +210,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <div className="stat-number-wrapper">
-                  <span className="stat-number-text">MILLIONS</span><span className="stat-suffix">+</span>
+                  <span className="stat-number-text">10M</span><span className="stat-suffix">+</span>
                 </div>
                 <div className="stat-label-container">
                   <span className="stat-label-white">HAPPY MOVIEGOERS</span>
@@ -234,7 +234,7 @@ export default function AboutPage() {
               BUILT <span className="gold-text">ON PASSION.</span><br />
               DRIVEN <span className="gold-text">BY INNOVATION.</span>
             </h2>
-            
+
             <div className="story-paragraphs">
               <p>We founded Connplex Cinemas with one shared vision: to democratize the luxury cinema experience and unlock untapped potential in every corner of India.</p>
               <p>From tier 1 cities to emerging markets, our mission is simple &mdash; bring world-class cinema to every audience, and unmatched opportunities to every partner.</p>
@@ -242,14 +242,14 @@ export default function AboutPage() {
               <p className="story-highlight">Because great cinema isn&apos;t just watched &mdash; it&apos;s built.</p>
             </div>
           </div>
-          
+
           <div className="story-visual">
             <div className="visual-card">
-              <Image 
-                src="/img/about/our story section image.png" 
-                alt="Our Story Building" 
-                width={800} 
-                height={600} 
+              <Image
+                src="/img/about/our story section image.png"
+                alt="Our Story Building"
+                width={800}
+                height={600}
                 className="visual-img"
               />
             </div>
@@ -261,46 +261,72 @@ export default function AboutPage() {
           SECTION 3: DIRECTOR'S CUT
           ========================================== */}
       <section className="directors-section section-container">
-        <div className="directors-box">
+        {/* Frame 1: Anish Patel */}
+        <div className="directors-box" style={{ marginBottom: '60px' }}>
           <div className="section-grid">
             <div className="directors-info">
               <div className="category-tag-container">
                 <span className="section-tag-gold">DIRECTOR&apos;S CUT</span>
               </div>
-              <h2 className="section-heading">
-                FROM THE DESKS OF<br />
-                <span className="gold-text">ANISH PATEL & RAHUL DHYANI</span>
+              <h2 className="section-heading" style={{ marginBottom: '10px' }}>
+                FROM THE DESK OF<br />
+                <span className="gold-text">ANISH PATEL</span>
               </h2>
-              
+              <h3 style={{ color: 'var(--gold-primary)', fontSize: '18px', fontWeight: 400, marginBottom: '25px', fontFamily: 'var(--font-heading)', letterSpacing: '0.04em' }}>
+                The Vision Behind Connplex
+              </h3>
+
               <div className="directors-quotes">
-                <p>Welcome to Connplex &mdash; where innovation meets entertainment, and business meets blockbuster.</p>
-                <p>We are on a mission to redefine cinema in India by creating experiences that are luxurious, accessible, and unforgettable.</p>
-                <p>Join us as we build the future of entertainment together.</p>
+                <p>For Anish Patel, cinema has always been more than entertainment &mdash; it&apos;s an experience that brings people, culture, and communities together. With a strong entrepreneurial mindset and a passion for innovation, he envisioned a cinema brand that could redefine how India experiences movies across both metro cities and emerging markets.</p>
+                <p>His focus has always been on creating scalable cinema ecosystems that combine luxury, technology, operational excellence, and long-term business value. Under his leadership, Connplex continues to expand with a clear mission &mdash; delivering premium entertainment experiences while creating profitable opportunities for developers, investors, and franchise partners.</p>
+                <p>Driven by innovation and growth, he believes the future of cinema lies in accessibility, smart infrastructure, and experiences that audiences truly remember.</p>
               </div>
-              
-              <div className="directors-footer">
-                <div className="signature-container">
-                  <svg className="signature-svg" width="120" height="40" viewBox="0 0 200 60" fill="none" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M30 40 C 20 20, 40 10, 50 30 C 60 50, 70 20, 80 40 C 90 60, 100 10, 110 30 C 120 50, 130 20, 140 40 C 150 60, 160 30, 170 30" />
-                    <path d="M100 15 C 105 5, 110 5, 115 15" />
-                  </svg>
-                </div>
+
+              <div className="directors-footer" style={{ marginTop: '20px' }}>
                 <div className="directors-names">
-                  <span className="names-gold">ANISH PATEL & RAHUL DHYANI</span>
-                  <span className="roles-white">FOUNDERS & DIRECTORS, CONNPLEX CINEMAS</span>
+                  <span className="names-gold">ANISH PATEL</span>
+                  <span className="roles-white">FOUNDER & DIRECTOR, CONNPLEX CINEMAS</span>
                 </div>
               </div>
             </div>
 
-            <div className="directors-visual">
-              <Image 
-                src="/img/about/DIRECTOR'S IMAGE.jpg" 
-                alt="Anish Patel & Rahul Dhyani" 
-                width={800} 
-                height={1000} 
-                className="visual-img"
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="directors-visual" style={{ position: 'relative', backgroundColor: 'rgba(255,255,255,0.02)', minHeight: '500px', width: '100%' }}>
+              <Image src="/img/anish patel.jpeg" alt="Anish Patel" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
+            </div>
+          </div>
+        </div>
+
+        {/* Frame 2: Rahul Dhyani */}
+        <div className="directors-box">
+          <div className="section-grid" style={{ direction: 'rtl' }}>
+            <div className="directors-info" style={{ direction: 'ltr' }}>
+              <div className="category-tag-container">
+                <span className="section-tag-gold">DIRECTOR&apos;S CUT</span>
+              </div>
+              <h2 className="section-heading" style={{ marginBottom: '10px' }}>
+                FROM THE DESK OF<br />
+                <span className="gold-text">RAHUL DHYANI</span>
+              </h2>
+              <h3 style={{ color: 'var(--gold-primary)', fontSize: '18px', fontWeight: 400, marginBottom: '25px', fontFamily: 'var(--font-heading)', letterSpacing: '0.04em' }}>
+                Building Experiences That Connect
+              </h3>
+
+              <div className="directors-quotes">
+                <p>Rahul Dhyani believes great cinemas are built on emotion, connection, and unforgettable experiences. With years of expertise in entertainment and business strategy, his vision for Connplex has been centered around creating destinations that combine storytelling, hospitality, and community engagement.</p>
+                <p>His approach focuses on understanding local markets while delivering global-standard cinema experiences through thoughtfully designed formats like Luxuriance, Signature, and Express. From concept to execution, he has played a key role in shaping Connplex into a modern entertainment brand built for India&apos;s evolving audiences.</p>
+                <p>For him, Connplex is not just about screens &mdash; it&apos;s about creating spaces where memories are made, businesses grow, and communities come alive through cinema.</p>
+              </div>
+
+              <div className="directors-footer" style={{ marginTop: '20px' }}>
+                <div className="directors-names">
+                  <span className="names-gold">RAHUL DHYANI</span>
+                  <span className="roles-white">FOUNDER & DIRECTOR, CONNPLEX CINEMAS</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="directors-visual" style={{ direction: 'ltr', position: 'relative', backgroundColor: 'rgba(255,255,255,0.02)', minHeight: '500px', width: '100%' }}>
+              <Image src="/img/rahul dhyani.jpeg" alt="Rahul Dhyani" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
             </div>
           </div>
         </div>
@@ -314,7 +340,7 @@ export default function AboutPage() {
           <span className="center-tag">OUR BUSINESS VERTICALS</span>
           <h2 className="center-heading">ONE STANDARD OF EXCELLENCE.</h2>
         </div>
-        
+
         <div className="formats-grid">
           {/* Format 1: Ticketing */}
           <div className="format-card" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
@@ -373,7 +399,7 @@ export default function AboutPage() {
         <div className="center-header">
           <span className="center-tag">WHAT DRIVES US</span>
         </div>
-        
+
         <div className="drivers-grid">
           {[
             { label: "NEXT-GEN TECHNOLOGY", icon: <svg className="driver-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg> },
@@ -396,16 +422,16 @@ export default function AboutPage() {
           ========================================== */}
       <section className="bottom-cta-section">
         <div className="hero-bg-container">
-          <Image 
-            src="/img/about/let's connect last cta image.png" 
-            alt="Lobby Background" 
-            fill 
+          <Image
+            src="/img/about/let's connect last cta image.png"
+            alt="Lobby Background"
+            fill
             className="hero-bg-img"
             style={{ objectFit: 'cover' }}
           />
           <div className="cta-backdrop-overlay"></div>
         </div>
-        
+
         <div className="section-container">
           <div className="cta-grid">
             <div className="cta-content">
@@ -429,40 +455,40 @@ export default function AboutPage() {
           ========================================== */}
       <footer className="about-footer">
         <div className="section-container footer-grid">
-            <div className="footer-brand">
-                <Image src="/logo.png" alt="Connplex" width={150} height={40} style={{ objectFit: 'contain' }} />
-                <p className="footer-copyright">
-                    &copy; 2024 CONNPLEX CINEMAS.<br />ALL RIGHTS RESERVED.
-                </p>
+          <div className="footer-brand">
+            <Image src="/logo.png" alt="Connplex" width={150} height={40} style={{ objectFit: 'contain' }} />
+            <p className="footer-copyright">
+              &copy; 2024 CONNPLEX CINEMAS.<br />ALL RIGHTS RESERVED.
+            </p>
+          </div>
+
+          <div className="footer-links-container">
+            <div className="footer-col">
+              <h4>COMPANY</h4>
+              <ul>
+                <li><Link href="/about">About Us</Link></li>
+                <li><a href="#">Our Leadership</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Newsroom</a></li>
+              </ul>
             </div>
-            
-            <div className="footer-links-container">
-                <div className="footer-col">
-                    <h4>COMPANY</h4>
-                    <ul>
-                        <li><Link href="/about">About Us</Link></li>
-                        <li><a href="#">Our Leadership</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Newsroom</a></li>
-                    </ul>
-                </div>
-                <div className="footer-col">
-                    <h4>SERVICES</h4>
-                    <ul>
-                        <li><a href="#">Smart Theatres</a></li>
-                        <li><a href="#">Premium Formats</a></li>
-                        <li><a href="#">Technology Solutions</a></li>
-                    </ul>
-                </div>
-                <div className="footer-col">
-                    <h4>QUICK LINKS</h4>
-                    <ul>
-                        <li><Link href="/case-studies">Case Studies</Link></li>
-                        <li><Link href="/franchise">Franchise Enquiry</Link></li>
-                        <li><Link href="/contact">Contact Us</Link></li>
-                    </ul>
-                </div>
+            <div className="footer-col">
+              <h4>SERVICES</h4>
+              <ul>
+                <li><a href="#">Smart Theatres</a></li>
+                <li><a href="#">Premium Formats</a></li>
+                <li><a href="#">Technology Solutions</a></li>
+              </ul>
             </div>
+            <div className="footer-col">
+              <h4>QUICK LINKS</h4>
+              <ul>
+                <li><Link href="/case-studies">Case Studies</Link></li>
+                <li><Link href="/franchise">Franchise Enquiry</Link></li>
+                <li><Link href="/contact">Contact Us</Link></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
